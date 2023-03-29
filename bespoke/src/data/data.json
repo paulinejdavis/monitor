@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://www.amazon.co.uk/",
+    "status": "green"
+  },
+  {
+    "url": "https://www.google.co.uk/",
+    "status": "red"
+  },
+  {
+    "url": "https://www.twitter.com/",
+    "status": "orange"
+  },
+  {
+    "url": "https://www.foo.com/",
+    "status": "green"
+  },
+  {
+    "url": "https://www.barf.com/",
+    "status": "red"
+  }
+]
