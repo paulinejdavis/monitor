@@ -1,14 +1,21 @@
 # monitor
 
- <img width="100" alt="arrow" src="https://user-images.githubusercontent.com/19231569/213458967-d77d1ede-cbb8-4cda-8d58-7ac2a1c70503.png"> 
+ <img width="100" alt="arrow" src="https://user-images.githubusercontent.com/19231569/213458967-d77d1ede-cbb8-4cda-8d58-7ac2a1c70503.png">
 
-## Summary
+## summary
 
-Bespoke monitoring: An application that tracks a large number (possibly hundreds) of sources(urls) - possibly twitter, many of which don't publish new content frequently and traditionally, this process takes a long time to verify each source individually by hand. 
+Bespoke monitoring: An application that tracks a large number (possibly hundreds) of sources(urls) - possibly twitter, many of which don't publish new content frequently and traditionally, this process takes a long time to verify each source individually by hand.
 
 This tool should be able to take an arbitrary number of urls as an input and check that (for instance) each url is reachable and returns valid content. By periodically running this tool, this would allow some basic checks on less frequently updated sources(urls).
 
-## User stories
+## tech stack
+
+- [React](https://reactjs.org/) for front end user interface.
+- [Node.js](https://nodejs.org/en/) for the server environment(v18.12)
+- NPM (8.19.2)
+- Nodemon (2.0.20) to reload the server automatically.
+
+## user stories
 
 ```
 The user wants basic functionality to start with.
@@ -16,7 +23,7 @@ The user wants basic functionality to start with.
 ```
 
 ```
-The user would like a possibility to grow and over-engineer the application 
+The user would like a possibility to grow and over-engineer the application
 with a user friendly frontend interface.
 
 ```
@@ -31,7 +38,7 @@ The user would like the application/tool to run on a local machine.
 
 ```
 
-# background
+## background
 
 https://www.polimonitor.com/solutions
 https://www.dynatrace.com/monitoring/platform/web-monitoring/?utm_source=google&utm_medium=cpc&utm_term=website%20monitoring&utm_campaign=uk-dem-web-monitoring&utm_content=none&gclsrc=aw.ds&gclid=Cj0KCQjww4-hBhCtARIsAC9gR3bRAfexFU8Q1gsGh749bqgwDVG4lf0ATqp_Q24kT4vB4KEroSLxbqAaAqJuEALw_wcB
