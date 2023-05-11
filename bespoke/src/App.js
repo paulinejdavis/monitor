@@ -36,8 +36,8 @@ function App() {
   // const foo = await fetch("/data/data.json");
   return (
     <div>
-       <div style={{backgroundColor:'#43882E', height: '300px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
-      <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px'}} />
+       <div style={{backgroundColor:'#43882E', height: '270px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
+      <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px', marginTop:'40px' }} />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
       <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px', marginRight:'7px'}}>
         <img src={game1} alt='game 1' style={{height: '160px', marginRight: '10px'}} />
