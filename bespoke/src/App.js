@@ -1,5 +1,10 @@
 import data from "./data/data.json";
 import "./App.css";
+import logo from "./images/LOGIN_MONITOR_LOGO.png"
+import game1 from './images/game_1.png';
+import game2 from './images/game_2.png';
+import game3 from './images/game_3.png';
+
 
 //to fetch the server/urls - check header status code that checks the header status
 //code when it comes back. Between 200 -299 is a success. Above 300 is not there. Path
@@ -31,6 +36,15 @@ function App() {
   // const foo = await fetch("/data/data.json");
   return (
     <div>
+       <div style={{backgroundColor:'#43882E', height: '300px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
+      <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px'}} />
+      {/* <h1 style={{color: 'white'}}>My App</h1> */}
+      <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px'}}>
+        <img src={game1} alt='game 1' style={{height: '160px', marginRight: '10px'}} />
+        <img src={game2} alt='game 2' style={{height: '160px', marginRight: '10px'}} />
+        <img src={game3} alt='game 3' style={{height: '160px'}} />
+      </div>
+    </div>
       <h1>bespoke</h1>
       {/* create js array with objects with key url and key status */}
       <ul>
