@@ -39,11 +39,13 @@ function App() {
        <div style={{backgroundColor:'#43882E', height: '300px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
       <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px'}} />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
-      <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px'}}>
+      <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px', marginRight:'7px'}}>
         <img src={game1} alt='game 1' style={{height: '160px', marginRight: '10px'}} />
         <img src={game2} alt='game 2' style={{height: '160px', marginRight: '10px'}} />
         <img src={game3} alt='game 3' style={{height: '160px'}} />
       </div>
+      <div style={{width: '180px', height: '180px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
+     
     </div>
       <h1>bespoke</h1>
       {/* create js array with objects with key url and key status */}
