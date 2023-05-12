@@ -40,11 +40,20 @@ function App() {
       <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px', marginTop:'40px' }} />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
       <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px', marginRight:'7px'}}>
-        <img src={game1} alt='game 1' style={{height: '160px', marginRight: '10px'}} />
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img src={game1} alt='Game 1' style={{ height: '160px', marginRight: '10px' }} />
+          <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Down</p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <img src={game2} alt='game 2' style={{height: '160px', marginRight: '10px'}} />
+        <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Up</p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <img src={game3} alt='game 3' style={{height: '160px'}} />
+        <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Unstable</p>
+        </div>
       </div>
-      <div style={{width: '180px', height: '180px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
+      <div style={{width: '215px', height: '215px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
      
     </div>
       <h1>bespoke</h1>
