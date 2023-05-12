@@ -10,6 +10,21 @@
   text-align: center;
 }
 
+body {
+  background-color: #43882E;
+  /* border: 1px solid #2FCE38;  */
+  /* margin:auto;
+  padding:20px; */
+  /* align-items: right; */
+}
+
+.body-container {
+  border: 1px solid #2FCE38;
+  width: 70%;
+  margin-left: 180px;
+
+}
+
 .dot::after {
   content: "";
   width: 15px;

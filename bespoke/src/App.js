@@ -1,3 +1,5 @@
+
+import React from 'react';
 import data from "./data/data.json";
 import "./App.css";
 import logo from "./images/LOGIN_MONITOR_LOGO.png"
@@ -31,11 +33,10 @@ import game3 from './images/game_3.png';
 
 //use state to store header response or use effect hook to do the traffic light option
 
-function App() {
+function Header() {
   // Try to fetch the data via the browser. 👇
   // const foo = await fetch("/data/data.json");
   return (
-    <div>
        <div style={{backgroundColor:'#43882E', height: '270px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
       <img src={logo} alt='Logo' style={{height: '125px', marginRight: '40px', marginTop:'25px' }} />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
@@ -60,9 +61,20 @@ function App() {
           <div style={{ width: '218px', height: '10px', backgroundColor: '#2FCE38', marginRight: '5px' }}></div>
           <p style={{ fontSize: '24px', color: '#2FCE38',alignItems: 'left', margin: '0' }}>458/1000</p>
         </div>
+        
         </div>
-    </div>
-      <h1>bespoke</h1>
+        </div>
+  );
+
+}
+
+function App() {
+  return (
+  <div>
+      <Header />
+      <div className="body-container">
+      
+       <h1 style={{fontSize: '25px', color: '#2FCE38'}} >  &nbsp; Website  &nbsp;&nbsp; Today</h1>
       {/* create js array with objects with key url and key status */}
       <ul>
         {data.map((el) => {
@@ -72,7 +84,10 @@ function App() {
         <li className="dot orange">https://www.google.co.uk/</li>
         <li className="dot red">https://www.twitter.com/</li> */}
       </ul>
-    </div>
+    
+      </div>
+      </div>
+      
   );
 }
 
