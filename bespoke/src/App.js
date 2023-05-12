@@ -54,7 +54,13 @@ function App() {
         </div>
       </div>
       <div style={{width: '215px', height: '215px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
-     
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', marginLeft: '10px' }}>
+        <p style={{ fontSize: '24px', color: '#2FCE38', marginBottom: '2px', marginLeft:'0' }}>Monitor</p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+          <div style={{ width: '218px', height: '18px', backgroundColor: '#2FCE38', marginRight: '5px' }}></div>
+          <p style={{ fontSize: '24px', color: '#2FCE38',alignItems: 'left', margin: '0' }}>458/1000</p>
+        </div>
+        </div>
     </div>
       <h1>bespoke</h1>
       {/* create js array with objects with key url and key status */}
