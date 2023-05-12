@@ -37,27 +37,27 @@ function App() {
   return (
     <div>
        <div style={{backgroundColor:'#43882E', height: '270px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
-      <img src={logo} alt='Logo' style={{height: '250px', marginRight: '40px', marginTop:'40px' }} />
+      <img src={logo} alt='Logo' style={{height: '125px', marginRight: '40px', marginTop:'25px' }} />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
       <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px', marginRight:'7px'}}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={game1} alt='Game 1' style={{ height: '160px', marginRight: '10px' }} />
-          <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Down</p>
+          <img src={game1} alt='Game 1' style={{ height: '80px', marginRight: '10px' }} />
+          <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Down</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img src={game2} alt='game 2' style={{height: '160px', marginRight: '10px'}} />
-        <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Up</p>
+        <img src={game2} alt='game 2' style={{height: '80px', marginRight: '10px'}} />
+        <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Up</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img src={game3} alt='game 3' style={{height: '160px'}} />
-        <p style = {{margin: '1px 0', fontSize: '30px', color: '#43882E'}}>Unstable</p>
+        <img src={game3} alt='game 3' style={{height: '80px'}} />
+        <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Unstable</p>
         </div>
       </div>
-      <div style={{width: '215px', height: '215px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
+      <div style={{width: '130px', height: '130px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', marginLeft: '10px' }}>
         <p style={{ fontSize: '24px', color: '#2FCE38', marginBottom: '2px', marginLeft:'0' }}>Monitor</p>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
-          <div style={{ width: '218px', height: '18px', backgroundColor: '#2FCE38', marginRight: '5px' }}></div>
+          <div style={{ width: '218px', height: '10px', backgroundColor: '#2FCE38', marginRight: '5px' }}></div>
           <p style={{ fontSize: '24px', color: '#2FCE38',alignItems: 'left', margin: '0' }}>458/1000</p>
         </div>
         </div>
