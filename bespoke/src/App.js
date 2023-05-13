@@ -10,6 +10,7 @@ import logo from "./images/LOGIN_MONITOR_LOGO.png"
 import game1 from './images/game_1.png';
 import game2 from './images/game_2.png';
 import game3 from './images/game_3.png';
+import tick from './images/8bit_tick.png';
 
 
 //to fetch the server/urls - check header status code that checks the header status
@@ -98,9 +99,38 @@ function App() {
   }, []);
 
   const checkStatus = (url) => {
+    // Check local storage for status information
+    const storedData = localStorage.getItem(url);
+    if (storedData) {
+      const { status, timestamp } = JSON.parse(storedData);
+      // Check if the stored data is within the last 5 days
+      const fiveDaysAgo = Date.now() - 5 * 24 * 60 * 60 * 1000; // 5 days in milliseconds
+      if (timestamp >= fiveDaysAgo) {
+        return status; // Return the stored status if within the 5-day period
+      }
+    }
+
     // Implement your logic to check the status of the URL
     // and return 'Up', 'Down', or 'Unstable' accordingly
-    return 'Up'; // Placeholder logic, replace with your implementation
+    const status = 'Up'; // Placeholder logic, replace with your implementation
+
+    // Store the status information in local storage
+    const dataToStore = { status, timestamp: Date.now() };
+    localStorage.setItem(url, JSON.stringify(dataToStore));
+
+    return status;
+  };
+
+  const getStatusImage = (status) => {
+    if (status === 'Up') {
+      return <img src={tick} alt="Up" style={{ width: '20%', height: '20%' }} />;
+    } else if (status === 'Down') {
+      // return an image for Down status if needed
+    } else if (status === 'Unstable') {
+      // return an image for Unstable status if needed
+    }
+    // return a default image if status is not recognized
+    return null;
   };
   return (
   <div>
@@ -117,17 +147,24 @@ function App() {
         <li className="dot orange">https://www.google.co.uk/</li>
         <li className="dot red">https://www.twitter.com/</li> */}
       {/* </ul> */}
-      <ul>
+      <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
   {webAddresses.map((address, index) => {
-    const { website_address, country, referrer } = address; // Destructure the address object
-    console.log('Address object:', address); // Optional: Add this line for debugging
+    const { website_address } = address; // Destructure the address object
+    const status = checkStatus(website_address);
     return (
-      <li className={`dot ${checkStatus(website_address)}`} key={index} style={{ color: '#2FCE38',fontSize: '14px', }}>
-        {website_address.replace(/(^\w+:|^)\/\//, '')} {/* Remove http:// or https:// from the URL */}
+      <li className={`dot ${checkStatus(website_address)}`} key={index} style={{ color: '#2FCE38', fontSize: '14px', marginBottom: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
+          <span style={{ width: '300px' }}>{website_address.replace(/(^\w+:|^)\/\//, '')}</span> {/* Remove http:// or https:// from the URL */}
+          <span>{getStatusImage(status)}</span>
+        </div>
       </li>
     );
   })}
 </ul>
+
+
+
+
 
       </div>
       </div>
