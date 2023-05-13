@@ -1,6 +1,10 @@
-
-import React from 'react';
-import data from "./data/data.json";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Papa from 'papaparse'; 
+import "./App.css";
+// import React from 'react';
+// import data from "./data/data.json";
+//import data from "./data/webAddresses.csv";
 import "./App.css";
 import logo from "./images/LOGIN_MONITOR_LOGO.png"
 import game1 from './images/game_1.png';
@@ -69,6 +73,35 @@ function Header() {
 }
 
 function App() {
+  const [webAddresses, setWebAddresses] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/data/webAddresses.csv');
+        console.log('Response:', response.data); // Log the response data
+
+        Papa.parse(response.data, {
+          header: true,
+          complete: function (results) {
+            console.log('Parsed Data:', results.data); // Log the parsed data
+            setWebAddresses(results.data);
+          }
+        });
+      } catch (error) {
+        console.log('Error:', error);
+      }
+    };
+
+    console.log('Fetching data...');
+    fetchData();
+  }, []);
+
+  const checkStatus = (url) => {
+    // Implement your logic to check the status of the URL
+    // and return 'Up', 'Down', or 'Unstable' accordingly
+    return 'Up'; // Placeholder logic, replace with your implementation
+  };
   return (
   <div>
       <Header />
@@ -76,15 +109,26 @@ function App() {
       
        <h1 style={{fontSize: '25px', color: '#2FCE38'}} >  &nbsp; Website  &nbsp;&nbsp; Today</h1>
       {/* create js array with objects with key url and key status */}
-      <ul>
+      {/* <ul>
         {data.map((el) => {
           return <li className={`dot ${el.status}`}>{el.url}</li>;
-        })}
+        })} */}
         {/* <li className="dot green">https://www.amazon.co.uk/</li>
         <li className="dot orange">https://www.google.co.uk/</li>
         <li className="dot red">https://www.twitter.com/</li> */}
-      </ul>
-    
+      {/* </ul> */}
+      <ul>
+  {webAddresses.map((address, index) => {
+    const { website_address, country, referrer } = address; // Destructure the address object
+    console.log('Address object:', address); // Optional: Add this line for debugging
+    return (
+      <li className={`dot ${checkStatus(website_address)}`} key={index} style={{ color: '#2FCE38',fontSize: '14px', }}>
+        {website_address.replace(/(^\w+:|^)\/\//, '')} {/* Remove http:// or https:// from the URL */}
+      </li>
+    );
+  })}
+</ul>
+
       </div>
       </div>
       
