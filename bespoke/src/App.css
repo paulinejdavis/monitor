@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 /* @import url("https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@400;500&family=Playfair+Display&family=Ubuntu:wght@300&display=swap"); */
 * {
@@ -11,7 +9,7 @@
 }
 
 body {
-  background-color: #43882E;
+  background-color: #43882e;
   /* border: 1px solid #2FCE38;  */
   /* margin:auto;
   padding:20px; */
@@ -19,10 +17,23 @@ body {
 }
 
 .body-container {
-  border: 1px solid #2FCE38;
+  border: 1px solid #2fce38;
   width: 70%;
   margin-left: 180px;
+}
 
+.url-container {
+  display: flex;
+  align-items: center;
+}
+
+.url-text {
+  margin-right: 10px;
+}
+
+.status-image {
+  width: 10%;
+  height: 10%;
 }
 
 .dot::after {

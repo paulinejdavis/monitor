@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Papa from 'papaparse'; 
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Papa from "papaparse";
 import "./App.css";
 // import React from 'react';
 // import data from "./data/data.json";
 //import data from "./data/webAddresses.csv";
 import "./App.css";
-import logo from "./images/LOGIN_MONITOR_LOGO.png"
-import game1 from './images/game_1.png';
-import game2 from './images/game_2.png';
-import game3 from './images/game_3.png';
-import tick from './images/8bit_tick.png';
-
+import logo from "./images/LOGIN_MONITOR_LOGO.png";
+import game1 from "./images/game_1.png";
+import game2 from "./images/game_2.png";
+import game3 from "./images/game_3.png";
+import tick from "./images/8bit_tick.png";
+import cross from "./images/8bit_X.png";
 
 //to fetch the server/urls - check header status code that checks the header status
 //code when it comes back. Between 200 -299 is a success. Above 300 is not there. Path
@@ -42,35 +42,130 @@ function Header() {
   // Try to fetch the data via the browser. 👇
   // const foo = await fetch("/data/data.json");
   return (
-       <div style={{backgroundColor:'#43882E', height: '270px', display: 'flex', alignItems: 'center', paddingLeft: '20px'}}>
-      <img src={logo} alt='Logo' style={{height: '125px', marginRight: '40px', marginTop:'25px' }} />
+    <div
+      style={{
+        backgroundColor: "#43882E",
+        height: "270px",
+        display: "flex",
+        alignItems: "center",
+        paddingLeft: "20px",
+      }}
+    >
+      <img
+        src={logo}
+        alt="Logo"
+        style={{ height: "125px", marginRight: "40px", marginTop: "25px" }}
+      />
       {/* <h1 style={{color: 'white'}}>My App</h1> */}
-      <div style={{display: 'flex', alignItems: 'center', backgroundColor: "#2FCE38", padding: '10px', marginRight:'7px'}}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={game1} alt='Game 1' style={{ height: '80px', marginRight: '10px' }} />
-          <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Down</p>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "#2FCE38",
+          padding: "10px",
+          marginRight: "7px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={game1}
+            alt="Game 1"
+            style={{ height: "80px", marginRight: "10px" }}
+          />
+          <p style={{ margin: "1px 0", fontSize: "25px", color: "#43882E" }}>
+            Down
+          </p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img src={game2} alt='game 2' style={{height: '80px', marginRight: '10px'}} />
-        <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Up</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={game2}
+            alt="game 2"
+            style={{ height: "80px", marginRight: "10px" }}
+          />
+          <p style={{ margin: "1px 0", fontSize: "25px", color: "#43882E" }}>
+            Up
+          </p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img src={game3} alt='game 3' style={{height: '80px'}} />
-        <p style = {{margin: '1px 0', fontSize: '25px', color: '#43882E'}}>Unstable</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <img src={game3} alt="game 3" style={{ height: "80px" }} />
+          <p style={{ margin: "1px 0", fontSize: "25px", color: "#43882E" }}>
+            Unstable
+          </p>
         </div>
       </div>
-      <div style={{width: '130px', height: '130px', backgroundColor: '#2FCE38', marginLeft: '10px'}}></div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', marginLeft: '10px' }}>
-        <p style={{ fontSize: '24px', color: '#2FCE38', marginBottom: '2px', marginLeft:'0' }}>Monitor</p>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
-          <div style={{ width: '218px', height: '10px', backgroundColor: '#2FCE38', marginRight: '5px' }}></div>
-          <p style={{ fontSize: '24px', color: '#2FCE38',alignItems: 'left', margin: '0' }}>458/1000</p>
+      <div
+        style={{
+          width: "130px",
+          height: "130px",
+          backgroundColor: "#2FCE38",
+          marginLeft: "10px",
+        }}
+      ></div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "left",
+          marginLeft: "10px",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "24px",
+            color: "#2FCE38",
+            marginBottom: "2px",
+            marginLeft: "0",
+          }}
+        >
+          Monitor
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "left",
+          }}
+        >
+          <div
+            style={{
+              width: "218px",
+              height: "10px",
+              backgroundColor: "#2FCE38",
+              marginRight: "5px",
+            }}
+          ></div>
+          <p
+            style={{
+              fontSize: "24px",
+              color: "#2FCE38",
+              alignItems: "left",
+              margin: "0",
+            }}
+          >
+            458/1000
+          </p>
         </div>
-        
-        </div>
-        </div>
+      </div>
+    </div>
   );
-
 }
 
 function App() {
@@ -79,22 +174,22 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/data/webAddresses.csv');
-        console.log('Response:', response.data); // Log the response data
+        const response = await axios.get("/data/webAddresses.csv");
+        console.log("Response:", response.data); // Log the response data
 
         Papa.parse(response.data, {
           header: true,
           complete: function (results) {
-            console.log('Parsed Data:', results.data); // Log the parsed data
+            console.log("Parsed Data:", results.data); // Log the parsed data
             setWebAddresses(results.data);
-          }
+          },
         });
       } catch (error) {
-        console.log('Error:', error);
+        console.log("Error:", error);
       }
     };
 
-    console.log('Fetching data...');
+    console.log("Fetching data...");
     fetchData();
   }, []);
 
@@ -112,7 +207,7 @@ function App() {
 
     // Implement your logic to check the status of the URL
     // and return 'Up', 'Down', or 'Unstable' accordingly
-    const status = 'Up'; // Placeholder logic, replace with your implementation
+    const status = "Up"; // Placeholder logic, replace with your implementation
 
     // Store the status information in local storage
     const dataToStore = { status, timestamp: Date.now() };
@@ -122,53 +217,100 @@ function App() {
   };
 
   const getStatusImage = (status) => {
-    if (status === 'Up') {
-      return <img src={tick} alt="Up" style={{ width: '20%', height: '20%' }} />;
-    } else if (status === 'Down') {
+    if (status === "Up") {
+      return (
+        <img src={tick} alt="Up" style={{ width: "20%", height: "20%" }} />
+      );
+    } else if (status === "Down") {
+      return (
+        <img src={cross} alt="Up" style={{ width: "20%", height: "20%" }} />
+      );
       // return an image for Down status if needed
-    } else if (status === 'Unstable') {
+    } else if (status === "Unstable") {
       // return an image for Unstable status if needed
     }
     // return a default image if status is not recognized
     return null;
   };
+
+  useEffect(() => {
+    const logStatus = () => {
+      webAddresses.forEach((address) => {
+        const { website_address } = address;
+        const status = checkStatus(website_address);
+
+        // Log the status information to your database or storage
+        console.log(`URL: ${website_address} - Status: ${status}`);
+      });
+    };
+
+    logStatus();
+
+    const intervalId = setInterval(logStatus, 86400000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [webAddresses]);
+
   return (
-  <div>
+    <div>
       <Header />
       <div className="body-container">
-      
-       <h1 style={{fontSize: '25px', color: '#2FCE38'}} >  &nbsp; Website  &nbsp;&nbsp; Today</h1>
-      {/* create js array with objects with key url and key status */}
-      {/* <ul>
+        <h1 style={{ fontSize: "25px", color: "#2FCE38" }}>
+          {" "}
+          &nbsp; Website &nbsp;&nbsp; Today &nbsp;&nbsp; Yesterday
+        </h1>
+        {/* create js array with objects with key url and key status */}
+        {/* <ul>
         {data.map((el) => {
           return <li className={`dot ${el.status}`}>{el.url}</li>;
         })} */}
         {/* <li className="dot green">https://www.amazon.co.uk/</li>
         <li className="dot orange">https://www.google.co.uk/</li>
         <li className="dot red">https://www.twitter.com/</li> */}
-      {/* </ul> */}
-      <ul style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-  {webAddresses.map((address, index) => {
-    const { website_address } = address; // Destructure the address object
-    const status = checkStatus(website_address);
-    return (
-      <li className={`dot ${checkStatus(website_address)}`} key={index} style={{ color: '#2FCE38', fontSize: '14px', marginBottom: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', width: '400px' }}>
-          <span style={{ width: '300px' }}>{website_address.replace(/(^\w+:|^)\/\//, '')}</span> {/* Remove http:// or https:// from the URL */}
-          <span>{getStatusImage(status)}</span>
-        </div>
-      </li>
-    );
-  })}
-</ul>
-
-
-
-
-
+        {/* </ul> */}
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          {webAddresses.map((address, index) => {
+            const { website_address } = address; // Destructure the address object
+            const status = checkStatus(website_address);
+            const yesterdayStatus = "Down"; // Placeholder logic, replace with actual implementation
+            return (
+              <li
+                className={`dot ${checkStatus(website_address)}`}
+                key={index}
+                style={{
+                  color: "#2FCE38",
+                  fontSize: "14px",
+                  marginBottom: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "400px",
+                  }}
+                >
+                  <span style={{ width: "300px" }}>
+                    {website_address.replace(/(^\w+:|^)\/\//, "")}
+                  </span>{" "}
+                  {/* Remove http:// or https:// from the URL */}
+                  <span>{getStatusImage(status)}</span>
+                  <span>{getStatusImage(yesterdayStatus)}</span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      </div>
-      
+    </div>
   );
 }
 
