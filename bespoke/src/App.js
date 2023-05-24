@@ -170,7 +170,8 @@ function Header() {
 
 function App() {
   const [webAddresses, setWebAddresses] = useState([]);
-
+  const [statuses, setStatuses] = useState([])
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -193,28 +194,42 @@ function App() {
     fetchData();
   }, []);
 
-  const checkStatus = (url) => {
-    // Check local storage for status information
-    const storedData = localStorage.getItem(url);
-    if (storedData) {
-      const { status, timestamp } = JSON.parse(storedData);
-      // Check if the stored data is within the last 5 days
-      const fiveDaysAgo = Date.now() - 5 * 24 * 60 * 60 * 1000; // 5 days in milliseconds
-      if (timestamp >= fiveDaysAgo) {
-        return status; // Return the stored status if within the 5-day period
-      }
+  // const checkStatus = (url) => {
+  //   // Check local storage for status information
+  //   const storedData = localStorage.getItem(url);
+  //   if (storedData) {
+  //     const { status, timestamp } = JSON.parse(storedData);
+  //     // Check if the stored data is within the last 5 days
+  //     const fiveDaysAgo = Date.now() - 5 * 24 * 60 * 60 * 1000; // 5 days in milliseconds
+  //     if (timestamp >= fiveDaysAgo) {
+  //       return status; // Return the stored status if within the 5-day period
+  //     }
+  //   }
+
+  //   // Implement your logic to check the status of the URL
+  //   // and return 'Up', 'Down', or 'Unstable' accordingly
+  //   const status = "Up"; // Placeholder logic, replace with your implementation
+
+  //   // Store the status information in local storage
+  //   const dataToStore = { status, timestamp: Date.now() };
+  //   localStorage.setItem(url, JSON.stringify(dataToStore));
+
+  //   return status;
+  // };
+
+  const checkStatus = async (url) => {
+    // fetch the url
+    // Make sure to pass { mode: 'no-cors' } as options
+    // If no errors return "Up"
+    // If errors return "Down"
+    try {
+      await fetch(url, { mode: 'no-cors' })
+      return "Up"
+    } catch (error) {
+      return "Down"
     }
-
-    // Implement your logic to check the status of the URL
-    // and return 'Up', 'Down', or 'Unstable' accordingly
-    const status = "Up"; // Placeholder logic, replace with your implementation
-
-    // Store the status information in local storage
-    const dataToStore = { status, timestamp: Date.now() };
-    localStorage.setItem(url, JSON.stringify(dataToStore));
-
-    return status;
-  };
+};
+  
 
   const getStatusImage = (status) => {
     if (status === "Up") {
@@ -233,25 +248,42 @@ function App() {
     return null;
   };
 
+  // const logStatus = async () => {
+  //   const updatedYesterdayStatuses = {};
+
+  //   for (const address of webAddresses) {
+  //     const { website_address } = address;
+  //     const status = await checkStatus(website_address);
+  //     const yesterdayStatus = yesterdayStatuses[website_address] || "";
+
+  //     updatedYesterdayStatuses[website_address] = status;
+
+  //     console.log(
+  //       `URL: ${website_address} - Status: ${status} - Yesterday's Status: ${yesterdayStatus}`
+  //     );
+  //   }
+
+  //   setYesterdayStatuses(updatedYesterdayStatuses);
+  // };
+
+  // useEffect(() => {
+  //   // logStatus();
+  //   const intervalId = setInterval(logStatus, 86400000);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //   };
+  // }, [webAddresses]);
+
+ 
   useEffect(() => {
-    const logStatus = () => {
-      webAddresses.forEach((address) => {
-        const { website_address } = address;
-        const status = checkStatus(website_address);
-
-        // Log the status information to your database or storage
-        console.log(`URL: ${website_address} - Status: ${status}`);
-      });
-    };
-
-    logStatus();
-
-    const intervalId = setInterval(logStatus, 86400000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [webAddresses]);
+    if (!statuses.length) {
+      webAddresses.forEach(async (address) => {
+        const { website_address } = address; // Destructure the address object
+        const status = await checkStatus(website_address);
+        setStatuses((prev) => [...prev, status ])
+      })
+    }
+  }, [webAddresses])
 
   return (
     <div>
@@ -277,13 +309,16 @@ function App() {
             alignItems: "flex-start",
           }}
         >
-          {webAddresses.map((address, index) => {
-            const { website_address } = address; // Destructure the address object
-            const status = checkStatus(website_address);
+          {/* {webAddresses.map((address, index) => { */}
+          {statuses.map((status, index) => {
+            const {website_address} = webAddresses[index] || {}
+            if (!website_address) return
+            // const { website_address } = address; // Destructure the address object
+            // const status = checkStatus(website_address);
             const yesterdayStatus = "Down"; // Placeholder logic, replace with actual implementation
             return (
               <li
-                className={`dot ${checkStatus(website_address)}`}
+                className={`dot ${status}`}
                 key={index}
                 style={{
                   color: "#2FCE38",
